@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Morning Dashboard</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Merriweather:wght@300;400;700&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      background: linear-gradient(135deg, #fefae0 0%, #afcc8e 100%);
+      min-height: 100vh;
+      padding: 2rem;
+      color: #283618;
+    }
+    
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      background: rgba(254, 250, 224, 0.95);
+      border-radius: 20px;
+      box-shadow: 0 20px 40px rgba(40, 54, 24, 0.12);
+      backdrop-filter: blur(10px);
+      overflow: hidden;
+      border: 1px solid rgba(96, 108, 56, 0.2);
+    }
+    
+    .header {
+      background: linear-gradient(135deg, #283618 0%, #606c38 100%);
+      color: #fefae0;
+      text-align: center;
+      padding: 3rem 2rem;
+      position: relative;
+    }
+    
+    .header::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grain" width="100" height="100" patternUnits="userSpaceOnUse"><circle cx="25" cy="25" r="0.5" fill="%23fefae0" opacity="0.12"/><circle cx="75" cy="75" r="0.3" fill="%23dda15e" opacity="0.08"/><circle cx="50" cy="10" r="0.4" fill="%23afcc8e" opacity="0.08"/></pattern></defs><rect width="100" height="100" fill="url(%23grain)"/></svg>');
+      opacity: 0.25;
+    }
+    
+    .header h1 {
+      font-family: 'Merriweather', serif;
+      font-size: 2.5rem;
+      font-weight: 300;
+      letter-spacing: -1px;
+      margin-bottom: 0.5rem;
+      position: relative;
+    }
+    
+    .header .subtitle {
+      font-size: 1rem;
+      opacity: 0.85;
+      font-weight: 300;
+      position: relative;
+      color: rgba(207, 244, 160, 0.9);
+    }
+    
+    .content {
+      padding: 2rem;
+    }
+    
+    .section {
+      margin-bottom: 3rem;
+    }
+    
+    .section:last-child {
+      margin-bottom: 0;
+    }
+    
+    h2 {
+      font-family: 'Merriweather', serif;
+      font-size: 1.4rem;
+      font-weight: 400;
+      color: #283618;
+      margin-bottom: 1.5rem;
+      text-align: center;
+      position: relative;
+      letter-spacing: 0.5px;
+    }
+    
+    h2::after {
+      content: '';
+      position: absolute;
+      bottom: -0.5rem;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 40px;
+      height: 2px;
+      background: linear-gradient(90deg, #dda15e, #bc6c25);
+      border-radius: 1px;
+    }
+    
+    .button-group {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 1rem;
+      margin-top: 2rem;
+    }
+    
+    .button-group a, 
+    .button-group button {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 1rem 1.5rem;
+      background: linear-gradient(135deg, #dda15e 0%, #bc6c25 100%);
+      color: #fefae0;
+      text-decoration: none;
+      border: none;
+      border-radius: 12px;
+      font-family: 'Inter', sans-serif;
+      font-size: 0.95rem;
+      font-weight: 500;
+      cursor: pointer;
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      box-shadow: 0 4px 12px rgba(188, 108, 37, 0.3);
+      position: relative;
+      overflow: hidden;
+      min-height: 50px;
+    }
+    
+    .button-group a::before,
+    .button-group button::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(35, 181, 211, 0.25), transparent);
+      transition: left 0.5s;
+    }
+    
+    .button-group a:hover::before,
+    .button-group button:hover::before {
+      left: 100%;
+    }
+    
+    .button-group a:hover, 
+    .button-group button:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 25px rgba(188, 108, 37, 0.45);
+    }
+    
+    .clip-maker {
+      background: linear-gradient(135deg, #283618 0%, #606c38 100%) !important;
+      box-shadow: 0 4px 12px rgba(40, 54, 24, 0.35) !important;
+      font-weight: 600 !important;
+      letter-spacing: 0.5px !important;
+      text-transform: uppercase !important;
+      font-size: 0.9rem !important;
+      border: 2px solid #283618 !important;
+      color: #fefae0 !important;
+    }
+    
+    .clip-maker:hover {
+      box-shadow: 0 8px 25px rgba(40, 54, 24, 0.45) !important;
+      border-color: #606c38 !important;
+    }
+    
+    /* Section-specific button colors */
+    .news .button-group a:not(.clip-maker), 
+    .news .button-group button:not(.clip-maker) {
+      background: linear-gradient(135deg, #bc6c25 0%, #db2b39 100%);
+      box-shadow: 0 4px 12px rgba(189, 43, 57, 0.3);
+    }
+    
+    .news .button-group a:not(.clip-maker):hover, 
+    .news .button-group button:not(.clip-maker):hover {
+      box-shadow: 0 8px 25px rgba(189, 43, 57, 0.45);
+    }
+    
+    .resource .button-group a {
+      background: linear-gradient(135deg, #606c38 0%, #283618 100%);
+      box-shadow: 0 4px 12px rgba(40, 54, 24, 0.35);
+    }
+    
+    .resource .button-group a:hover {
+      box-shadow: 0 8px 25px rgba(40, 54, 24, 0.5);
+    }
+    
+    .communication .button-group a {
+      background: linear-gradient(135deg, #afcc8e 0%, #cdf4a0 100%);
+      color: #283618;
+      box-shadow: 0 4px 12px rgba(175, 204, 142, 0.35);
+    }
+    
+    .communication .button-group a:hover {
+      box-shadow: 0 8px 25px rgba(175, 204, 142, 0.5);
+    }
+    
+    .workspace .button-group a {
+      background: linear-gradient(135deg, #dda15e 0%, #bc6c25 100%);
+      box-shadow: 0 4px 12px rgba(188, 108, 37, 0.3);
+    }
+    
+    .workspace .button-group a:hover {
+      box-shadow: 0 8px 25px rgba(188, 108, 37, 0.45);
+    }
+    
+    .maps .button-group a {
+      background: linear-gradient(135deg, #606c38 0%, #afcc8e 100%);
+      box-shadow: 0 4px 12px rgba(96, 108, 56, 0.3);
+    }
+    
+    .maps .button-group a:hover {
+      box-shadow: 0 8px 25px rgba(96, 108, 56, 0.45);
+    }
+    
+    @media (max-width: 768px) {
+      body {
+        padding: 1rem;
+      }
+      
+      .header {
+        padding: 2rem 1rem;
+      }
+      
+      .header h1 {
+        font-size: 2rem;
+      }
+      
+      .content {
+        padding: 1.5rem;
+      }
+      
+      .button-group {
+        grid-template-columns: 1fr;
+        gap: 0.8rem;
+      }
+      
+      .section {
+        margin-bottom: 2rem;
+      }
+    }
+  </style>
+  <script>
+    function openClipMakerLinks() {
+      const urls = [
+        "https://www.latimes.com/search?q=%22eaton+fire%22+%22altadena%22&s=1",
+        "https://www.nytimes.com/search?dropmab=false&lang=en&query=%22eaton%20fire%22%20%22altadena%22&sort=newest",
+        "https://news.google.com/search?q=%22eaton%20fire%22%20%22altadena%22%20when%3A1d&hl=en-US&gl=US&ceid=US%3Aen",
+        "https://www.pasadenastarnews.com/",
+        "https://laist.com/search?q=altadena#gsc.tab=0&gsc.q=altadena&gsc.sort=date",
+        "https://chatgpt.com/g/g-p-67e4447cfaf08191a6c69be2ea9fb9e6-news-clip-maker/project",
+        "https://www.notion.so/Prompt-1e06897e812480ada571c3b36cf4fd17"
+      ];
+      urls.forEach(url => window.open(url, '_blank'));
+    }
+  </script>
+</head>
+<body>
+  <div class="container">
+    <div class="header">
+      <h1>Morning Dashboard</h1>
+      <div class="subtitle">Your daily command center</div>
+    </div>
+    
+    <div class="content">
+      <div class="section news">
+        <h2>News</h2>
+        <div class="button-group">
+          <button class="clip-maker" onclick="openClipMakerLinks()">News Clips</button>
+          <a href="https://www.latimes.com/search?q=%22eaton+fire%22+%22altadena%22&s=1" target="_blank">LA Times</a>
+          <a href="https://www.nytimes.com/search?dropmab=false&lang=en&query=%22eaton%20fire%22%20%22altadena%22&sort=newest" target="_blank">NY Times</a>
+          <a href="https://news.google.com/search?q=%22eaton%20fire%22%20%22altadena%22%20when%3A1d&hl=en-US&gl=US&ceid=US%3Aen" target="_blank">Google News</a>
+          <a href="https://www.pasadenastarnews.com/" target="_blank">Pasadena Star-News</a>
+          <a href="https://laist.com/search?q=altadena#gsc.tab=0&gsc.q=altadena&gsc.sort=date" target="_blank">LAist</a>
+        </div>
+      </div>
+
+      <div class="section resource">
+        <h2>Resource</h2>
+        <div class="button-group">
+          <a href="https://eaton-fire-resource.document360.io/" target="_blank">EFRH</a>
+        </div>
+      </div>
+
+      <div class="section communication">
+        <h2>Communication</h2>
+        <div class="button-group">
+          <a href="https://mail.google.com/mail/u/1/#inbox" target="_blank">Info@</a>
+          <a href="https://mail.google.com/mail/u/0/#inbox" target="_blank">John@</a>
+          <a href="https://discord.com/channels/1327336733456470046/1341161550198734960" target="_blank">Discord</a>
+        </div>
+      </div>
+
+      <div class="section workspace">
+        <h2>Workspace</h2>
+        <div class="button-group">
+          <a href="https://drive.google.com/drive/u/0/folders/1qIKs9C312T_CEBX3ew7KzY5nHNOvnlQ0" target="_blank">Google Drive</a>
+          <a href="https://platform.organizer.com/home" target="_blank">Organizer</a>
+          <a href="https://tasks.google.com/tasks/" target="_blank">Tasks</a>
+          <a href="https://airtable.com/appQZ2SGzHK2MdPVj/pag5vfGmACDLZGyOS/form" target="_blank">People Input Form</a>
+        </div>
+      </div>
+
+      <div class="section maps">
+        <h2>Map Stuff</h2>
+        <div class="button-group">
+          <a href="https://www.zillow.com/altadena-ca-91001/land/?searchQueryState=%7B%22isMapVisible%22%3Atrue%2C%22mapBounds%22%3A%7B%22north%22%3A34.232110569367%2C%22south%22%3A34.15628922453173%2C%22east%22%3A-118.0801343821745%2C%22west%22%3A-118.20415972702314%7D%2C%22mapZoom%22%3A14%2C%22usersSearchTerm%22%3A%22Altadena%20CA%2091001%22%2C%22filterState%22%3A%7B%22sort%22%3A%7B%22value%22%3A%22globalrelevanceex%22%7D%2C%22sf%22%3A%7B%22value%22%3Afalse%7D%2C%22tow%22%3A%7B%22value%22%3Afalse%7D%2C%22mf%22%3A%7B%22value%22%3Afalse%7D%2C%22con%22%3A%7B%22value%22%3Afalse%7D%2C%22apa%22%3A%7B%22value%22%3Afalse%7D%2C%22manu%22%3A%7B%22value%22%3Afalse%7D%2C%22apco%22%3A%7B%22value%22%3Afalse%7D%2C%22doz%22%3A%7B%22value%22%3A%221%22%7D%7D%2C%22isListVisible%22%3Atrue%2C%22regionSelection%22%3A%5B%7B%22regionId%22%3A96265%2C%22regionType%22%3A7%7D%5D%2C%22pagination%22%3A%7B%7D%7D" target="_blank">New Lots for Sale</a>
+          <a href="https://www.zillow.com/altadena-ca-91001/land/?searchQueryState=%7B%22pagination%22%3A%7B%7D%2C%22isMapVisible%22%3Atrue%2C%22mapBounds%22%3A%7B%22west%22%3A-118.21982382767011%2C%22east%22%3A-118.06447028152753%2C%22south%22%3A34.153874316895426%2C%22north%22%3A34.23452323757735%7D%2C%22mapZoom%22%3A14%2C%22usersSearchTerm%22%3A%22Altadena%20CA%2091001%22%2C%22regionSelection%22%3A%5B%7B%22regionId%22%3A96265%2C%22regionType%22%3A7%7D%5D%2C%22filterState%22%3A%7B%22sort%22%3A%7B%22value%22%3A%22globalrelevanceex%22%7D%2C%22sf%22%3A%7B%22value%22%3Afalse%7D%2C%22tow%22%3A%7B%22value%22%3Afalse%7D%2C%22mf%22%3A%7B%22value%22%3Afalse%7D%2C%22con%22%3A%7B%22value%22%3Afalse%7D%2C%22apa%22%3A%7B%22value%22%3Afalse%7D%2C%22manu%22%3A%7B%22value%22%3Afalse%7D%2C%22apco%22%3A%7B%22value%22%3Afalse%7D%7D%2C%22isListVisible%22%3Atrue%7D" target="_blank">All Lots for Sale</a>
+          <a href="https://www.zillow.com/altadena-ca-91001/?searchQueryState=%7B%22isMapVisible%22%3Atrue%2C%22mapBounds%22%3A%7B%22north%22%3A34.232110569367%2C%22south%22%3A34.15628922453173%2C%22east%22%3A-118.0801343821745%2C%22west%22%3A-118.20415972702314%7D%2C%22mapZoom%22%3A14%2C%22usersSearchTerm%22%3A%22Altadena%20CA%2091001%22%2C%22filterState%22%3A%7B%22sort%22%3A%7B%22value%22%3A%22globalrelevanceex%22%7D%7D%2C%22isListVisible%22%3Atrue%2C%22regionSelection%22%3A%5B%7B%22regionId%22%3A96265%2C%22regionType%22%3A7%7D%5D%2C%22pagination%22%3A%7B%7D%7D" target="_blank">Everything for Sale</a>
+          <a href="https://www.google.com/maps/d/u/0/edit?mid=1P9XOFMzRW2nayfsznMyYDkNrRLgDP9s&ll=34.1983666228286%2C-118.092551&z=14" target="_blank">John's Map</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
