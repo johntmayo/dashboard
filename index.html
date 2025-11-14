@@ -156,31 +156,15 @@
       box-shadow: 0 8px 25px rgba(188, 108, 37, 0.45);
     }
     
-    .clip-maker {
-      background: linear-gradient(135deg, #283618 0%, #606c38 100%) !important;
-      box-shadow: 0 4px 12px rgba(40, 54, 24, 0.35) !important;
-      font-weight: 600 !important;
-      letter-spacing: 0.5px !important;
-      text-transform: uppercase !important;
-      font-size: 0.9rem !important;
-      border: 2px solid #283618 !important;
-      color: #fefae0 !important;
-    }
-    
-    .clip-maker:hover {
-      box-shadow: 0 8px 25px rgba(40, 54, 24, 0.45) !important;
-      border-color: #606c38 !important;
-    }
-    
     /* Section-specific button colors */
-    .news .button-group a:not(.clip-maker), 
-    .news .button-group button:not(.clip-maker) {
+    .news .button-group a, 
+    .news .button-group button {
       background: linear-gradient(135deg, #bc6c25 0%, #db2b39 100%);
       box-shadow: 0 4px 12px rgba(189, 43, 57, 0.3);
     }
     
-    .news .button-group a:not(.clip-maker):hover, 
-    .news .button-group button:not(.clip-maker):hover {
+    .news .button-group a:hover, 
+    .news .button-group button:hover {
       box-shadow: 0 8px 25px rgba(189, 43, 57, 0.45);
     }
     
@@ -221,6 +205,15 @@
       box-shadow: 0 8px 25px rgba(96, 108, 56, 0.45);
     }
     
+    .maps .button-group a.zillow-link {
+      background: linear-gradient(135deg, #6B9BD1 0%, #4A7BA7 100%);
+      box-shadow: 0 4px 12px rgba(74, 123, 167, 0.3);
+    }
+    
+    .maps .button-group a.zillow-link:hover {
+      box-shadow: 0 8px 25px rgba(74, 123, 167, 0.45);
+    }
+    
     @media (max-width: 768px) {
       body {
         padding: 1rem;
@@ -248,20 +241,6 @@
       }
     }
   </style>
-  <script>
-    function openClipMakerLinks() {
-      const urls = [
-        "https://www.latimes.com/search?q=%22eaton+fire%22+%22altadena%22&s=1",
-        "https://www.nytimes.com/search?dropmab=false&lang=en&query=%22eaton%20fire%22%20%22altadena%22&sort=newest",
-        "https://news.google.com/search?q=%22eaton%20fire%22%20%22altadena%22%20when%3A1d&hl=en-US&gl=US&ceid=US%3Aen",
-        "https://www.pasadenastarnews.com/",
-        "https://laist.com/search?q=altadena#gsc.tab=0&gsc.q=altadena&gsc.sort=date",
-        "https://chatgpt.com/g/g-p-67e4447cfaf08191a6c69be2ea9fb9e6-news-clip-maker/project",
-        "https://www.notion.so/Prompt-1e06897e812480ada571c3b36cf4fd17"
-      ];
-      urls.forEach(url => window.open(url, '_blank'));
-    }
-  </script>
 </head>
 <body>
   <div class="container">
@@ -274,7 +253,6 @@
       <div class="section news">
         <h2>News</h2>
         <div class="button-group">
-          <button class="clip-maker" onclick="openClipMakerLinks()">News Clips</button>
           <a href="https://www.latimes.com/search?q=%22eaton+fire%22+%22altadena%22&s=1" target="_blank">LA Times</a>
           <a href="https://www.nytimes.com/search?dropmab=false&lang=en&query=%22eaton%20fire%22%20%22altadena%22&sort=newest" target="_blank">NY Times</a>
           <a href="https://news.google.com/search?q=%22eaton%20fire%22%20%22altadena%22%20when%3A1d&hl=en-US&gl=US&ceid=US%3Aen" target="_blank">Google News</a>
@@ -284,9 +262,11 @@
       </div>
 
       <div class="section resource">
-        <h2>Resource</h2>
+        <h2>Resources</h2>
         <div class="button-group">
-          <a href="https://eaton-fire-resource.document360.io/" target="_blank">EFRH</a>
+          <a href="https://altadenawiki.com/wiki/Main_Page" target="_blank">Altadena Recovery Wiki</a>
+          <a href="https://airtable.com/appQZ2SGzHK2MdPVj/tblKCvEmfVdtdJfaA/viw4iSy9nPLWtGn5i?blocks=hide" target="_blank">NC List</a>
+          <a href="https://airtable.com/appQZ2SGzHK2MdPVj/tblKCvEmfVdtdJfaA/viwAcamYpriYRmSF3?blocks=hide" target="_blank">Master List</a>
         </div>
       </div>
 
@@ -302,19 +282,20 @@
       <div class="section workspace">
         <h2>Workspace</h2>
         <div class="button-group">
-          <a href="https://drive.google.com/drive/u/0/folders/1qIKs9C312T_CEBX3ew7KzY5nHNOvnlQ0" target="_blank">Google Drive</a>
-          <a href="https://platform.organizer.com/home" target="_blank">Organizer</a>
           <a href="https://tasks.google.com/tasks/" target="_blank">Tasks</a>
           <a href="https://airtable.com/appQZ2SGzHK2MdPVj/pag5vfGmACDLZGyOS/form" target="_blank">People Input Form</a>
+          <a href="https://drive.google.com/drive/u/0/folders/1mlB4KBeR8x_Jcr5-bUg-z-JTTpQgPu-f" target="_blank">JM Workspace</a>
+          <a href="https://drive.google.com/drive/u/0/folders/1QrA5VaQzMzPOGSc3hljNI8IffFadV7Hl" target="_blank">Meeting Notes</a>
         </div>
       </div>
 
       <div class="section maps">
         <h2>Map Stuff</h2>
         <div class="button-group">
-          <a href="https://www.zillow.com/altadena-ca-91001/land/?searchQueryState=%7B%22isMapVisible%22%3Atrue%2C%22mapBounds%22%3A%7B%22north%22%3A34.232110569367%2C%22south%22%3A34.15628922453173%2C%22east%22%3A-118.0801343821745%2C%22west%22%3A-118.20415972702314%7D%2C%22mapZoom%22%3A14%2C%22usersSearchTerm%22%3A%22Altadena%20CA%2091001%22%2C%22filterState%22%3A%7B%22sort%22%3A%7B%22value%22%3A%22globalrelevanceex%22%7D%2C%22sf%22%3A%7B%22value%22%3Afalse%7D%2C%22tow%22%3A%7B%22value%22%3Afalse%7D%2C%22mf%22%3A%7B%22value%22%3Afalse%7D%2C%22con%22%3A%7B%22value%22%3Afalse%7D%2C%22apa%22%3A%7B%22value%22%3Afalse%7D%2C%22manu%22%3A%7B%22value%22%3Afalse%7D%2C%22apco%22%3A%7B%22value%22%3Afalse%7D%2C%22doz%22%3A%7B%22value%22%3A%221%22%7D%7D%2C%22isListVisible%22%3Atrue%2C%22regionSelection%22%3A%5B%7B%22regionId%22%3A96265%2C%22regionType%22%3A7%7D%5D%2C%22pagination%22%3A%7B%7D%7D" target="_blank">New Lots for Sale</a>
-          <a href="https://www.zillow.com/altadena-ca-91001/land/?searchQueryState=%7B%22pagination%22%3A%7B%7D%2C%22isMapVisible%22%3Atrue%2C%22mapBounds%22%3A%7B%22west%22%3A-118.21982382767011%2C%22east%22%3A-118.06447028152753%2C%22south%22%3A34.153874316895426%2C%22north%22%3A34.23452323757735%7D%2C%22mapZoom%22%3A14%2C%22usersSearchTerm%22%3A%22Altadena%20CA%2091001%22%2C%22regionSelection%22%3A%5B%7B%22regionId%22%3A96265%2C%22regionType%22%3A7%7D%5D%2C%22filterState%22%3A%7B%22sort%22%3A%7B%22value%22%3A%22globalrelevanceex%22%7D%2C%22sf%22%3A%7B%22value%22%3Afalse%7D%2C%22tow%22%3A%7B%22value%22%3Afalse%7D%2C%22mf%22%3A%7B%22value%22%3Afalse%7D%2C%22con%22%3A%7B%22value%22%3Afalse%7D%2C%22apa%22%3A%7B%22value%22%3Afalse%7D%2C%22manu%22%3A%7B%22value%22%3Afalse%7D%2C%22apco%22%3A%7B%22value%22%3Afalse%7D%7D%2C%22isListVisible%22%3Atrue%7D" target="_blank">All Lots for Sale</a>
-          <a href="https://www.zillow.com/altadena-ca-91001/?searchQueryState=%7B%22isMapVisible%22%3Atrue%2C%22mapBounds%22%3A%7B%22north%22%3A34.232110569367%2C%22south%22%3A34.15628922453173%2C%22east%22%3A-118.0801343821745%2C%22west%22%3A-118.20415972702314%7D%2C%22mapZoom%22%3A14%2C%22usersSearchTerm%22%3A%22Altadena%20CA%2091001%22%2C%22filterState%22%3A%7B%22sort%22%3A%7B%22value%22%3A%22globalrelevanceex%22%7D%7D%2C%22isListVisible%22%3Atrue%2C%22regionSelection%22%3A%5B%7B%22regionId%22%3A96265%2C%22regionType%22%3A7%7D%5D%2C%22pagination%22%3A%7B%7D%7D" target="_blank">Everything for Sale</a>
+          <a href="https://www.zillow.com/altadena-ca-91001/land/?searchQueryState=%7B%22isMapVisible%22%3Atrue%2C%22mapBounds%22%3A%7B%22north%22%3A34.232110569367%2C%22south%22%3A34.15628922453173%2C%22east%22%3A-118.0801343821745%2C%22west%22%3A-118.20415972702314%7D%2C%22mapZoom%22%3A14%2C%22usersSearchTerm%22%3A%22Altadena%20CA%2091001%22%2C%22filterState%22%3A%7B%22sort%22%3A%7B%22value%22%3A%22globalrelevanceex%22%7D%2C%22sf%22%3A%7B%22value%22%3Afalse%7D%2C%22tow%22%3A%7B%22value%22%3Afalse%7D%2C%22mf%22%3A%7B%22value%22%3Afalse%7D%2C%22con%22%3A%7B%22value%22%3Afalse%7D%2C%22apa%22%3A%7B%22value%22%3Afalse%7D%2C%22manu%22%3A%7B%22value%22%3Afalse%7D%2C%22apco%22%3A%7B%22value%22%3Afalse%7D%2C%22doz%22%3A%7B%22value%22%3A%221%22%7D%7D%2C%22isListVisible%22%3Atrue%2C%22regionSelection%22%3A%5B%7B%22regionId%22%3A96265%2C%22regionType%22%3A7%7D%5D%2C%22pagination%22%3A%7B%7D%7D" target="_blank" class="zillow-link">New Lots for Sale</a>
+          <a href="https://www.zillow.com/altadena-ca-91001/land/?searchQueryState=%7B%22pagination%22%3A%7B%7D%2C%22isMapVisible%22%3Atrue%2C%22mapBounds%22%3A%7B%22west%22%3A-118.21982382767011%2C%22east%22%3A-118.06447028152753%2C%22south%22%3A34.153874316895426%2C%22north%22%3A34.23452323757735%7D%2C%22mapZoom%22%3A14%2C%22usersSearchTerm%22%3A%22Altadena%20CA%2091001%22%2C%22regionSelection%22%3A%5B%7B%22regionId%22%3A96265%2C%22regionType%22%3A7%7D%5D%2C%22filterState%22%3A%7B%22sort%22%3A%7B%22value%22%3A%22globalrelevanceex%22%7D%2C%22sf%22%3A%7B%22value%22%3Afalse%7D%2C%22tow%22%3A%7B%22value%22%3Afalse%7D%2C%22mf%22%3A%7B%22value%22%3Afalse%7D%2C%22con%22%3A%7B%22value%22%3Afalse%7D%2C%22apa%22%3A%7B%22value%22%3Afalse%7D%2C%22manu%22%3A%7B%22value%22%3Afalse%7D%2C%22apco%22%3A%7B%22value%22%3Afalse%7D%7D%2C%22isListVisible%22%3Atrue%7D" target="_blank" class="zillow-link">All Lots for Sale</a>
+          <a href="https://www.zillow.com/altadena-ca-91001/?searchQueryState=%7B%22isMapVisible%22%3Atrue%2C%22mapBounds%22%3A%7B%22north%22%3A34.232110569367%2C%22south%22%3A34.15628922453173%2C%22east%22%3A-118.0801343821745%2C%22west%22%3A-118.20415972702314%7D%2C%22mapZoom%22%3A14%2C%22usersSearchTerm%22%3A%22Altadena%20CA%2091001%22%2C%22filterState%22%3A%7B%22sort%22%3A%7B%22value%22%3A%22globalrelevanceex%22%7D%7D%2C%22isListVisible%22%3Atrue%2C%22regionSelection%22%3A%5B%7B%22regionId%22%3A96265%2C%22regionType%22%3A7%7D%5D%2C%22pagination%22%3A%7B%7D%7D" target="_blank" class="zillow-link">Everything for Sale</a>
+          <a href="https://www.google.com/maps/d/u/0/edit?mid=1T3qLU0SPkGu8EDLi1uX5QnwAun5_Z0c&ll=34.19277225653315%2C-118.13847849814258&z=14" target="_blank">NC-Facing Map</a>
           <a href="https://www.google.com/maps/d/u/0/edit?mid=1P9XOFMzRW2nayfsznMyYDkNrRLgDP9s&ll=34.1983666228286%2C-118.092551&z=14" target="_blank">John's Map</a>
         </div>
       </div>
