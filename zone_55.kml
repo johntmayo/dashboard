@@ -1,0 +1,33 @@
+<kml xmlns="http://www.opengis.net/kml/2.2"><Document>
+
+<Placemark id="354b3db613e9cb1dbf680add2cbec8f0">
+<ExtendedData>
+  <Data name="ContactEmail"><value>rachelgariepy@gmail.com </value></Data>
+  <Data name="ContactName"><value>Rachel Gariepy</value></Data>
+  <Data name="ContactPhone"><value>(978) 979-1149</value></Data>
+  <Data name="Status"><value>Confirmed</value></Data>
+  <Data name="ZoneName"><value>Zone 55</value></Data></ExtendedData>
+  <Polygon>
+<outerBoundaryIs>
+  <LinearRing><coordinates>-118.136964,34.182736
+-118.135764,34.182606
+-118.135351,34.182458
+-118.135773,34.181514
+-118.136086,34.180925
+-118.13649,34.18103
+-118.136739,34.180582
+-118.136835,34.180439
+-118.136908,34.180392
+-118.137359,34.179402
+-118.138412,34.179877
+-118.138141,34.180533
+-118.138026,34.180991
+-118.137574,34.181411
+-118.137459,34.182472
+-118.137075,34.182505
+-118.136964,34.182736</coordinates></LinearRing></outerBoundaryIs></Polygon></Placemark>
+
+
+
+
+</Document></kml>
